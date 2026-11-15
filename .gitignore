@@ -1,0 +1,10 @@
+# group-96 | Generated files must never be submitted
+/acaderp
+*.o
+*.out.exe
+*.exe
+*.a
+*.so
+*.pyc
+__pycache__/
+*.tmp

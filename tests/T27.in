@@ -1,0 +1,9 @@
+# T27: F in a term, repeat in the same term with B; only the B counts
+COURSE A REGULAR 4 CORE -
+STUDENT S1 Asha
+REGISTER S1 A 1
+GRADE S1 A 1 F
+REGISTER S1 A 1
+GRADE S1 A 1 B
+GPA S1
+GRADE S1 A 1 A

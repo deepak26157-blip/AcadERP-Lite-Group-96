@@ -1,0 +1,7 @@
+# Bonus: missing file must not mutate the current system.
+COURSE C1 REGULAR 3 CORE -
+STUDENT S1 Alex
+REGISTER S1 C1 1
+GRADE S1 C1 1 A
+LOAD tests/this_file_does_not_exist_96.dat
+GPA S1

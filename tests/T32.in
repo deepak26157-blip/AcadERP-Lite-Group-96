@@ -1,0 +1,12 @@
+# Bonus: saved state survives another command and load restores it.
+PROGRAM 4 0 5.00 24 0
+COURSE CS1 REGULAR 4 CORE -
+STUDENT S1 Asha
+REGISTER S1 CS1 1
+GRADE S1 CS1 1 B
+SAVE tests/bonus_snapshot.tmp
+COURSE CS2 REGULAR 2 ELECTIVE -
+LOAD tests/bonus_snapshot.tmp
+GPA S1
+TRANSCRIPT S1
+ELIGIBLE S1 CS2 2

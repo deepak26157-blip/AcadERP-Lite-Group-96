@@ -1,0 +1,9 @@
+# group-96 | invalid snapshot: prerequisite never passed
+ACADERP96 1
+8 0 500 24 0
+2
+C1 0 4 1 -
+C2 0 4 1 C1
+1
+S1 Mira 1
+1 1 A 0
