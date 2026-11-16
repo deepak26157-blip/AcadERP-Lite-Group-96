@@ -267,55 +267,37 @@ The counting attempt for each course is its latest graded attempt; failed attemp
 
 Each `tests/Tnn.in` has a hand-computed `Tnn.out`. The tests cover T01–T23 from the assignment, plus E1 handling in `ELIGIBLE`, a thesis converted to F and repeated, an already-passed course, a same-term repeat, huge malformed numeric values, failed-command state preservation, and thesis conversion. T31–T40 cover transcript ordering, save/load round trips, missing files, malformed snapshots, invalid repeated-course histories, invalid saved credit loads, saved registrations whose prerequisite was never passed (T39), saved thesis registrations below the thesis-credit requirement (T40), write errors, and repeat-after-failure round trips. `./run_tests.sh` runs all 40 numbered cases and prints the pass count. The official sample is separately checked against `tests/sample.out`.
 
-## LLM Usage Disclosure (ChatGPT and Claude)
+## LLM Usage Disclosure
 
-**Group:** group-96  
-**LLMs used:** OpenAI ChatGPT and Anthropic Claude.  
-**Purpose:** Development assistance, debugging, testing, documentation, and review.
+**AI Tools Used:** OpenAI ChatGPT and Anthropic Claude
 
-### ChatGPT (OpenAI)
+### Purpose of AI Assistance
 
-- Helped interpret the AcadERP-Lite assignment PDF and group-96 submission requirements.
-- Assisted with the initial C++11 implementation, design of classes and fixed-size arrays, command parsing, return-code error handling, GPA/AVG, graduation, eligibility, and thesis logic.
-- Helped draft and expand automated input/output tests, the Makefile, test runner, and README/demo instructions.
-- Assisted with integer-overflow hardening, reviewing corrected code, and preparing source-only ZIP archives.
-- Helped implement and test the optional `TRANSCRIPT`, `SAVE`, and `LOAD` features, including invalid-snapshot validation and round-trip tests.
-- Added the `LOAD` checks for prerequisite completion and thesis credit thresholds, with fixtures `bonus_bad_prereq.dat` and `bonus_bad_thesis.dat` and tests T39 and T40.
+AI tools were used during the development of AcadERP-Lite for understanding assignment requirements, implementation assistance, debugging, code review, testing, and documentation.
 
-### Claude (Anthropic)
+**ChatGPT (OpenAI)** assisted with:
 
-- Reviewed the earlier ChatGPT-assisted project ZIP against the assignment PDF and checked the build, tests, banned features and memory use (ASAN/UBSAN).
-- Found and fixed the bug where grading a repeated registration in the same term could target the wrong attempt (`registrationFor()`), and added test T27.
-- Split `execute()` in `grp_96_main.cpp` into short per-command handlers and reformatted `grp_96_erp.h`.
-- Reviewed the final ZIP including the bonus features: fuzzed `LOAD` with malformed snapshots and checked the `SAVE`/`LOAD` round trip. The issues it found were then fixed: README test counts, the over-long `load()` (now split into `loadCourses`, `loadStudents`, `loadRegistration`), a missing group comment in one fixture, and the README prompt log.
-- Reviewed the later ZIP with the prerequisite and thesis-credit checks: ran randomized SAVE/LOAD tests on 1000 legal histories (no false rejections, identical query results after LOAD). It then split the over-long `validateSnapshot()` into `repeatLegal`, `prereqPassedBefore` and `thesisCreditsBefore`, and corrected the stale test counts in this README.
-- Helped edit this README (group-ID naming and this disclosure).
+- Understanding the project specifications and C++11 implementation requirements.
+- Developing and reviewing ERP functionality, including GPA, graduation, eligibility, and thesis-related operations.
+- Preparing automated tests, build scripts, and demonstration instructions.
+- Implementing and validating optional features such as `TRANSCRIPT`, `SAVE`, and `LOAD`.
+- Identifying potential implementation issues and suggesting improvements.
 
-### Examples of prompts supplied during development
+**Claude (Anthropic)** assisted with:
 
-The following are representative **actual ChatGPT requests** from the project conversation (spelling retained):
+- Reviewing the implementation against the assignment requirements.
+- Identifying and correcting issues involving repeated registrations and grade handling.
+- Improving code organization and readability.
+- Reviewing test coverage and validating file-handling functionality.
+- Checking the final project structure and documentation.
 
-1. `please start work on it and let me knopw after finishing it`
-2. `tumhari zip file m kuch bug tha jo maine claude se tikh kraya ab chrck krke btao sahi h kya`
-3. `please jo bhi kami is zip file m ytumhe lagi usko correct kro or mujhe dusri zip file send kro`
-4. `please readme nfile m demo steps bhi daal; dukoi unknown agar perform krna chae to tb krega`
-5. `bonusd question bhinke siye`
-6. `ARE yrr bonus marks waala part bhi acche se kro marks bilkul cut ni hone chahe`
-7. `read me file me llm usage bhi daalo maine chat gpt and claude ka use kiya h`
+### Build and Verification
 
-**Claude prompts** (quoted exactly as typed, in Hinglish):
+The project was compiled and tested using Ubuntu with the GNU C++ compiler and C++11.
 
-1. Uploaded the assignment PDF and pasted the submission/naming instructions, with: `e mera oopd ka project h or niche ye instruction ... m credit 2 waala student hu ye hmara 2 logo ka group h project krna tha joalready m kr chuka please let me know wo sahi h ya nhi m zip file upload krunga ab`
-2. Uploaded `group-96.zip` with: `ye rhi ab btao ya project sahi kiya h ya nahi m alreadty sab details share kr chuka hu`
-3. `please jo bhi mistake hui h wo muhje fix krke dusri zip bnakr do diya gyi instruction and project ko dhyan m rakhte hue`
-4. `yrr tumne zip ki naming glt krdi instruction m dekho kaise diya h`
-5. `tumne Group 96 ya naming kiya beech ka - nhi lgaya`
-6. `tikh h read me file me AI usage bhi LIKH DENA ki konsa tool use kiya likh dedna chat gpt`
-7. `and prompt bhi`
-8. Uploaded the final ZIP with: `ye meri final zip h isme bonus waala part bnhi kiya h isko acche se check krke btao sab sahi se hua ya nahi`
-9. `tikh h jo chize glt h wo sahi krke do`
-10. Uploaded `group-96__5_.zip` with: `ye waali final dekhna - Kya fix kiya? ... ye sab chat gpt ne fix kiya h sahi h kya`
-11. `yrr final zip do ab jisme koi bhi mistake na ho`
+The automated test suite completed successfully, with **40 out of 40 tests passing**.
+
+AI-assisted suggestions, generated code, and corrections were incorporated into the project development and verification workflow.
 
 ### Verification, responsibility, and limitations
 
