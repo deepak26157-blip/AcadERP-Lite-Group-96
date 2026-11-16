@@ -24,3 +24,15 @@ The test runner executes each input file and compares the actual program output 
 - Test T42 checks rejection of an oversized integer and continued processing of subsequent commands.
 
 All tests should pass before submitting the project
+
+
+## Additional Regression Coverage
+
+The extended regression suite includes:
+
+- T41: Rejection of an invalid grade symbol.
+- T42: Rejection of an oversized integer while preserving subsequent command processing.
+- T43: Handling comments and blank lines while preserving correct error line numbers.
+
+These tests help verify parser robustness and error recovery.
+
