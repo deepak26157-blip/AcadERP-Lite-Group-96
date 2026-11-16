@@ -39,3 +39,5 @@ These tests help verify parser robustness and error recovery.
 - T44: Validate semester boundaries by rejecting terms 0 and 13 while accepting term 1.
 - - T45: Verify duplicate registration rejection and recovery.
 - T46: Verify unknown student registration error recovery.
+- - T47: Verify unknown course registration error recovery.
+- T48: Verify invalid grade rejection followed by successful grade assignment.
