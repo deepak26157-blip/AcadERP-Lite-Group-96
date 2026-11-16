@@ -36,3 +36,4 @@ The extended regression suite includes:
 
 These tests help verify parser robustness and error recovery.
 
+- T44: Validate semester boundaries by rejecting terms 0 and 13 while accepting term 1.
