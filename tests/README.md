@@ -23,4 +23,4 @@ The test runner executes each input file and compares the actual program output 
 - Tests cover valid operations, invalid commands, error handling, and bonus functionality.
 - Test T42 checks rejection of an oversized integer and continued processing of subsequent commands.
 
-All tests should pass before submitting the project.
+All tests should pass before submitting the project
