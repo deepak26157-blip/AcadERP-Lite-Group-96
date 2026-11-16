@@ -105,7 +105,7 @@ No output from `diff` means the files match exactly.
 ./run_tests.sh
 ```
 
-The script checks `tests/T01.in` through `tests/T40.in` against their matching `.out` files. The expected final summary is:
+The script checks `tests/T01.in` through `tests/T49.in` against their matching `.out` files. The expected final summary is:
 
 ```text
 Passed: 40 | Failed: 0
@@ -215,7 +215,7 @@ GPA S01 10.00
 ELIGIBLE S01 CS102 NO E1
 ```
 
-The last line proves `LOAD` restored the earlier snapshot, removing the course added after `SAVE`. Press **Ctrl+D** to exit. `my_records.dat` is a plain-text data file generated locally; it is not required in the submission. To remove it, run `rm -f my_records.dat`. To run the dedicated bonus tests, use `./run_tests.sh` (T31–T40). Do not include generated snapshots or compiled binaries in the submission ZIP.
+The last line proves `LOAD` restored the earlier snapshot, removing the course added after `SAVE`. Press **Ctrl+D** to exit. `my_records.dat` is a plain-text data file generated locally; it is not required in the submission. To remove it, run `rm -f my_records.dat`. To run the dedicated bonus tests, use `./run_tests.sh` (T31–T40). Additional regression tests T41–T49 cover grade validation, parser boundaries, registration errors, and recovery. Do not include generated snapshots or compiled binaries in the submission ZIP.
 
 ### Step 8 — Common problems and cleanup
 
@@ -265,7 +265,7 @@ The counting attempt for each course is its latest graded attempt; failed attemp
 
 ## Testing
 
-Each `tests/Tnn.in` has a hand-computed `Tnn.out`. The tests cover T01–T23 from the assignment, plus E1 handling in `ELIGIBLE`, a thesis converted to F and repeated, an already-passed course, a same-term repeat, huge malformed numeric values, failed-command state preservation, and thesis conversion. T31–T40 cover transcript ordering, save/load round trips, missing files, malformed snapshots, invalid repeated-course histories, invalid saved credit loads, saved registrations whose prerequisite was never passed (T39), saved thesis registrations below the thesis-credit requirement (T40), write errors, and repeat-after-failure round trips. `./run_tests.sh` runs all 40 numbered cases and prints the pass count. The official sample is separately checked against `tests/sample.out`.
+Each `tests/Tnn.in` has a hand-computed `Tnn.out`. The tests cover T01–T23 from the assignment, plus E1 handling in `ELIGIBLE`, a thesis converted to F and repeated, an already-passed course, a same-term repeat, huge malformed numeric values, failed-command state preservation, and thesis conversion. T31–T40 cover transcript ordering, save/load round trips, missing files, malformed snapshots, invalid repeated-course histories, invalid saved credit loads, saved registrations whose prerequisite was never passed (T39), saved thesis registrations below the thesis-credit requirement (T40), write errors, and repeat-after-failure round trips. `./run_tests.sh` runs all 49 numbered cases and prints the pass count. T41–T49 additionally test invalid grades, numeric overflow, comments and line numbers, semester boundaries, duplicate registration, unknown students and courses, transcript error recovery, and valid grading after an error. The official sample is separately checked against `tests/sample.out`.
 
 ## LLM Usage Disclosure
 
