@@ -41,3 +41,4 @@ These tests help verify parser robustness and error recovery.
 - T46: Verify unknown student registration error recovery.
 - - T47: Verify unknown course registration error recovery.
 - T48: Verify invalid grade rejection followed by successful grade assignment.
+- - T49: Verify that requesting a transcript for an unknown student reports an error and does not prevent subsequent valid transcript generation.
